@@ -187,7 +187,7 @@ const saveBulkScheduleDoctor = async (data) => {
         let oldSchedule = await aplicationDB.Schedule.findAll({
             where: {
                 doctorId: data[0].doctorId,
-                date: data[0].date
+                date: '' + data[0].date
             }
         })
         let differenceAdd = _.differenceWith(data, oldSchedule, (a, b) => {
@@ -198,6 +198,7 @@ const saveBulkScheduleDoctor = async (data) => {
             await aplicationDB.Schedule.bulkCreate(differenceAdd.map(item => {
                 return {
                     ...item,
+                    date: '' + item.date,
                     currentNumber: 1,
                     maxNumber: process.env.MAX_NUMBER_SCHEDULE
                 }
