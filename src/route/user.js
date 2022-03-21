@@ -4,6 +4,7 @@ import userController from '../controllers/userController'
 let router = express.Router();
 
 let userRoutes = (app) => {
+
     router.post('/login', userController.handleLogin)
     router.get('/getAll', userController.handleGetAllUsers)
     router.post('/addNew', userController.handleAddNewUser)

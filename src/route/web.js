@@ -12,6 +12,7 @@ const initWebRoutes = (app) => {
     patientRoutes(app)
     specialtyRoutes(app)
     clinicRoutes(app)
+
 }
 
 module.exports = initWebRoutes;
